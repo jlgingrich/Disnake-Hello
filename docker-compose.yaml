@@ -7,7 +7,11 @@ volumes:
 services:
   core:
     container_name: core
-    build: .
+    image: jlgingrich/disnake
+    build:
+      dockerfile_inline: |
+        COPY ./exts ./exts
+        RUN pip install -r requirements.txt
     env_file:
       - .env
     volumes:
