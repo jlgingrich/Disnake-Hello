@@ -1,0 +1,15 @@
+name: disnake-hello
+
+volumes:
+  data:
+  logs:
+
+services:
+  core:
+    container_name: core
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - data:/app/data
+      - logs:/app/logs
